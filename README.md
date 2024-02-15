@@ -19,7 +19,8 @@ This Python project focuses on implementing edge detection algorithms without us
 
 ## Result
 
-<!-- Add image here -->
+1. Sobel Edge Detector
+   ![comparison b/w sobel and custom impl](https://github.com/noobsiecoder/edge-detection-filters/blob/main/results/sobel/1/Figure_2.png?raw=true)
 
 ## Requirements
 
@@ -54,7 +55,7 @@ Contributions are always welcome! Feel free to submit pull requests or open issu
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE]() file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/noobsiecoder/edge-detection-filters/tree/main?tab=MIT-1-ov-file) file for details.
 
 ## References
 
