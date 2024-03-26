@@ -17,10 +17,28 @@ This Python project focuses on implementing edge detection algorithms without us
     4. Choose an appropriate value for thresholding, higher the value, lowers the chances of finding an edge (dull)
 ```
 
+2. Canny Edge Detection
+
+- The Canny edge detector is an edge detection operator that uses a multi-stage algorithm to detect a wide range of edges in images. 
+- It was developed by John F. Canny in 1986. Canny also produced a computational theory of edge detection explaining why the technique works. 
+- The process of applying Canny edge detection on an image:
+
+```code
+    1. Convert the color image to grayscale
+    2. Apply Gaussian filter (kernel) to smooth the image in order to remove the noise
+    3. Find the intensity gradients (magnitude and orientation) of the image
+    4. Perform non-max supression by using the gradient magnitude in the gradient direction (check if the pixel is a local maxima)
+    5. Find potential edges by categorizing edges: weak, strong and no-edges
+    6. Track edges by hysteresis and connect the weak edges to strong edges in the image
+```
+
 ## Result
 
 1. Sobel Edge Detector
    ![comparison b/w sobel and custom impl](https://github.com/noobsiecoder/edge-detection-filters/blob/main/results/sobel/1/Figure_2.png?raw=true)
+
+2. Canny Edge Detector
+    ![comparison b/w canny and custom impl](https://github.com/noobsiecoder/edge-detection-filters/blob/main/results/canny/1/Figure_2.jpeg?raw=true)
 
 ## Requirements
 
@@ -44,7 +62,7 @@ This Python project focuses on implementing edge detection algorithms without us
 2. Run the following command to execute the edge detection script:
 
 ```bash
-    # edge_detection_file<str> := [sobel]
+    # edge_detection_file<str> := [sobel | canny]
     # img_file(s)<str| list> := [img_01, .., img_03]
     python3 src/<edge_detection_file>.py samples/<img_file(s)>.png
 ```
@@ -62,3 +80,6 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 - [Edge Detection](https://en.wikipedia.org/wiki/Edge_detection)
 - [Sobel edge detection](https://en.wikipedia.org/wiki/Sobel_operator)
 - [How to find Edges in Images: Sobel Operators & Full Implementation](https://www.youtube.com/watch?v=VL8PuOPjVjY)
+- [Canny Edge Detection](https://en.wikipedia.org/wiki/Canny_edge_detector)
+- [Canny Edge Detection Slides by Prof. Robert B. Fisher, School of Informatics, University of Edinburgh](https://homepages.inf.ed.ac.uk/rbf/AVINVERTED/STEREO/av5_edgesf.pdf)
+- [Edges: The Canny Edge Detector](https://homepages.inf.ed.ac.uk/rbf/CVonline/LOCAL_COPIES/MARBLE/low/edges/canny.htm)
