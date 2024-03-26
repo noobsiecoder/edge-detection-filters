@@ -38,7 +38,7 @@ This Python project focuses on implementing edge detection algorithms without us
    ![comparison b/w sobel and custom impl](https://github.com/noobsiecoder/edge-detection-filters/blob/main/results/sobel/1/Figure_2.png?raw=true)
 
 2. Canny Edge Detector
-    ![comparison b/w canny and custom impl](https://github.com/noobsiecoder/edge-detection-filters/blob/main/results/canny/1/Figure_2.jpeg?raw=true)
+    ![comparison b/w canny and custom impl](https://github.com/noobsiecoder/edge-detection-filters/blob/main/results/canny/1/Figure_2.png?raw=true)
 
 ## Requirements
 
