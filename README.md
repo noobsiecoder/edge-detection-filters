@@ -1,6 +1,6 @@
 # Edge Detection Filters
 
-This Python project focuses on implementing edge detection algorithms without using OpenCV library. It includes the Sobel edge detection technique.
+This Python project focuses on implementing edge detection algorithms without using OpenCV library. It includes the Sobel and Canny edge detection technique.
 
 ## Implementation
 
