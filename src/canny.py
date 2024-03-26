@@ -57,8 +57,8 @@ class CannyOperator:
         Alternate:
         For 3 channels, use the formula: I = 0.2989 * R + 0.5870 * G + 0.1140 * B
         '''
-        self.__grayscale_np = np.mean(self.__img_np, axis=2, dtype=np.uint8)
-        # self.__grayscale_np = np.dot(self.__img_np[..., :3], [0.1140, 0.5870, 0.2989]) # for 3 channels, convert into 1 channel -> intensity
+        # self.__grayscale_np = np.mean(self.__img_np, axis=2, dtype=np.uint8)
+        self.__grayscale_np = np.dot(self.__img_np[..., :3], [0.2989, 0.5870, 0.1140]) # for 3 channels, convert into 1 channel -> intensity
         # grayscale_img = Image.fromarray(self.__grayscale_np)
         # grayscale_img.show()
         return self
@@ -264,10 +264,10 @@ if __name__ == "__main__":
         for i in range(1, len(sys.argv)):
             obj = CannyOperator(sys.argv[i])
             obj.grayscale()\
-                .gaussian_blur(size=3, sigma=10)\
+                .gaussian_blur(size=5, sigma=2.5)\
                 .gradient_approximation()\
                 .non_max_supression()\
-                .double_thresholding(low_threshold_ratio=0.1, high_threshold_ratio=0.3)\
+                .double_thresholding(low_threshold_ratio=0.09, high_threshold_ratio=0.18)\
                 .hysteresis(weak_pixel_intensity=50)\
                 .canny_cv2(tmin=50)\
                 .comparisons()
