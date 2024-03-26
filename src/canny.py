@@ -93,9 +93,9 @@ class CannyOperator:
                                       [-1, 0, 1]]) # sobel kernel x-axis
         vertical_filter = np.transpose(horizontal_filter) # sobel kernel y-axis
         horizontal_gradient = convolve2d(
-            self.__grayscale_np, horizontal_filter, mode='same', boundary='symm', fillvalue=0)
+            self.__blurred_np, horizontal_filter, mode='same', boundary='symm', fillvalue=0)
         vertical_gradient = convolve2d(
-            self.__grayscale_np, vertical_filter, mode='same', boundary='symm', fillvalue=0)
+            self.__blurred_np, vertical_filter, mode='same', boundary='symm', fillvalue=0)
         self.__gradient_magnitude = np.sqrt(
             horizontal_gradient ** 2 + vertical_gradient ** 2)  # magnitude of the gradient
         self.__gradient_direction = np.arctan2(vertical_gradient, horizontal_gradient)  # magnitude of the gradient
@@ -257,18 +257,18 @@ class CannyOperator:
         plt.show()
         plt.close()
         final_image.convert('RGB').save("Canny_impl.png") # final image
-        canny_image.convert('RGB').save("Canny_cv2.png") # cv'2 canny image
+        canny_image.convert('RGB').save("Canny_cv2.png") # cv2's canny image
 
 if __name__ == "__main__":
     if (len(sys.argv) > 1):
         for i in range(1, len(sys.argv)):
             obj = CannyOperator(sys.argv[i])
             obj.grayscale()\
-                .gaussian_blur(size=3, sigma=2.5)\
+                .gaussian_blur(size=3, sigma=10)\
                 .gradient_approximation()\
                 .non_max_supression()\
-                .double_thresholding(low_threshold_ratio=0.2, high_threshold_ratio=0.4)\
-                .hysteresis(weak_pixel_intensity=30)\
+                .double_thresholding(low_threshold_ratio=0.1, high_threshold_ratio=0.3)\
+                .hysteresis(weak_pixel_intensity=50)\
                 .canny_cv2(tmin=50)\
                 .comparisons()
     else:
